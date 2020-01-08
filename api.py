@@ -1,22 +1,15 @@
-# Product Service
-
-# Import framework
+# app.py - a minimal flask api using flask_restful
 from flask import Flask
 from flask_restful import Resource, Api
 
-# Instantiate the app
 app = Flask(__name__)
 api = Api(app)
 
-class Product(Resource):
+class HelloWorld(Resource):
     def get(self):
-        return {
-            'products': ['Ice cream', 'Chocolate', 'Fruit', 'Eggs']
-        }
+        return {'nama': 'halo'}
 
-# Create routes
-api.add_resource(Product, '/')
+api.add_resource(HelloWorld, '/')
 
-# Run the application
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(debug=True, host='0.0.0.0')
